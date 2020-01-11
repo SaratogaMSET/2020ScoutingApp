@@ -18,8 +18,8 @@ public class Variables {
     public static boolean rotControlAttempted =  false;
     public static boolean rotControlSuccessful =  false;
 
-    public static boolean PosControlAttempted =  false;
-    public static boolean PosControlSuccessful =  false;
+    public static boolean posControlAttempted =  false;
+    public static boolean posControlSuccessful =  false;
 
     public static boolean groundIntake = false;
 

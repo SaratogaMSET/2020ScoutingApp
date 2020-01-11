@@ -56,4 +56,32 @@ public class TeleOpActivity extends AppCompatActivity {
         Variables.innerPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
     }
+
+    public void rotAttemptedClicked(View v) {
+        Button b = (Button) v;
+        Variables.rotControlAttempted = true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+    public void rotSuccesfulClicked(View v) {
+        Button b = (Button) v;
+        Variables.rotControlSuccessful = true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+    public void posAttemptedClicked(View v) {
+        Button b = (Button) v;
+        Variables.posControlAttempted = true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+    public void posSuccesfulClicked(View v) {
+        Button b = (Button) v;
+        Variables.posControlSuccessful = true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+
+
+
 }
