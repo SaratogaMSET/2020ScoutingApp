@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00E40B0B"
+    android:background="#91A4E0"
     android:paddingTop="?attr/actionBarSize">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,51 +37,39 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="290dp"
-        android:layout_height="626dp"
+        android:layout_width="334dp"
+        android:layout_height="759dp"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
-        app:layout_constraintVertical_bias="0.606"
-        app:srcCompat="@drawable/Powerport" />
+        app:layout_constraintVertical_bias="0.629"
+        app:srcCompat="@drawable/powerport" />
 
     <Button
         android:id="@+id/innerPort"
         android:layout_width="223dp"
         android:layout_height="75dp"
+        android:background="#EAF0EF"
+        android:onClick="innerClicked"
         android:text="Inner Port"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/outerPort"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.315" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <Button
         android:id="@+id/outerPort"
         android:layout_width="229dp"
         android:layout_height="72dp"
+        android:background="#EAF0EF"
+        android:onClick="outerClicked"
         android:text="Outer Port"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.272" />
-
-    <Button
-        android:id="@+id/bottomPort"
-        android:layout_width="192dp"
-        android:layout_height="70dp"
-        android:text="Bottom Port"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
@@ -89,30 +77,50 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <Button
+        android:id="@+id/bottomPort"
+        android:layout_width="213dp"
+        android:layout_height="63dp"
+        android:background="#EAF0EF"
+        android:onClick="bottomClicked"
+        android:text="Bottom Port"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/outerPort"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/iniationLine"
-        android:layout_width="98dp"
-        android:layout_height="144dp"
+        android:layout_width="158dp"
+        android:layout_height="348dp"
         android:layout_marginBottom="328dp"
+        android:background="#DFEEED"
+        android:onClick="lineCrossed"
         android:text="Initiation Line Crossed"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <Button
         android:id="@+id/undoButton"
-        android:layout_width="93dp"
-        android:layout_height="61dp"
-        android:text="Undo Button"
+        android:layout_width="145dp"
+        android:layout_height="101dp"
+        android:background="#DFEEED"
+        android:text="Undo"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
@@ -120,9 +128,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.665" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
