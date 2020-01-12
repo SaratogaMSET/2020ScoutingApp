@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" >
+        app:menu="@menu/bottom_nav_menu">
 
         <Button
             android:id="@+id/nextScreen"
@@ -141,5 +141,23 @@
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.665" />
+
+    <TextView
+        android:id="@+id/scoredisp"
+        android:layout_width="570dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="625dp"
+        android:layout_marginBottom="8dp"
+        android:background="#DEDEDE"
+        android:text="Will display scores"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="12pt"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

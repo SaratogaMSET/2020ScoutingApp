@@ -1,10 +1,12 @@
 package com.example.officialscoutingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -20,6 +22,7 @@ public class AutoActivity extends AppCompatActivity {
 
     private Stack<Integer> currMoves;
 
+    TextView scores;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto);
@@ -30,8 +33,12 @@ public class AutoActivity extends AppCompatActivity {
         Button innerPort = findViewById(R.id.innerPort);
         Button nextScreen = findViewById(R.id.nextScreen);
         Button undo = findViewById(R.id.undoButton);
+        scores = findViewById(R.id.scoredisp);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
+        // scores.setText(Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
+
+        update();
         currMoves = new Stack<Integer>();
 
         if(Variables.isAutoOver==true){
@@ -55,6 +62,7 @@ public class AutoActivity extends AppCompatActivity {
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.outerPort);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
+        update();
     }
 
     public void bottomClicked(View v){
@@ -63,6 +71,7 @@ public class AutoActivity extends AppCompatActivity {
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.bottomPort);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
+        update();
     }
 
     public void innerClicked(View v) {
@@ -71,14 +80,21 @@ public class AutoActivity extends AppCompatActivity {
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.innerPort);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
+        update();
     }
 
     public void lineCrossed(View v) {
         Button b = (Button) v;
+        if(Variables.crossedLine)
+        {
+            Log.d("error", "Undo first before changing");
+            return;
+        }
         Variables.crossedLine=true;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.initiationLine);
         Log.d("status", "team has crossed init. line");
+        findViewById(R.id.initiationLine).setBackgroundColor(Color.rgb(255, 210, 0));
     }
 
     public void undoPressed(View v) {
@@ -90,6 +106,7 @@ public class AutoActivity extends AppCompatActivity {
         int latest = currMoves.pop();
         Log.d("buttonId", Integer.toString(v.getId()));
         removeAccordingly(latest);
+        update();
     }
 
     public void removeAccordingly(int latest)
@@ -98,6 +115,7 @@ public class AutoActivity extends AppCompatActivity {
         {
             Log.d("status", "team did not actually cross init. line");
             Variables.crossedLine=false;
+            findViewById(R.id.initiationLine).setBackgroundColor(0xFFDFEEED);
         } else if(latest == R.id.bottomPort)
         {
             Variables.bottomPort--;
@@ -108,7 +126,7 @@ public class AutoActivity extends AppCompatActivity {
         {
             Variables.outerPort--;
         }
-        Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
+        update();
     }
 
     public void nextScreenClicked(View v){
@@ -120,13 +138,18 @@ public class AutoActivity extends AppCompatActivity {
 
     public void nextScreen(){
         Button b = (Button) findViewById(R.id.nextScreen);
-        b.setOnClickListener(new View.OnClickListener() {
+        if(Variables.isAutoOver) b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), TeleOpActivity.class));
                 Log.d("status", "TeleOp has started");
             }
         });
+    }
+
+    public void update()
+    {
+        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner.");
     }
 
 }
