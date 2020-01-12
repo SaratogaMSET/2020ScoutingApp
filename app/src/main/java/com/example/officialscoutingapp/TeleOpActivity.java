@@ -20,13 +20,11 @@ public class TeleOpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button iniationLine = findViewById(R.id.iniationLine);
+        Button iniationLine = findViewById(R.id.initiationLine);
         Button bottomPort = findViewById(R.id.bottomPort);
         Button outerPort = findViewById(R.id.outerPort);
         Button innerPort = findViewById(R.id.innerPort);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
-
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

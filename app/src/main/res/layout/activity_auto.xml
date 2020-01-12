@@ -106,7 +106,7 @@
         app:layout_constraintVertical_bias="0.75" />
 
     <Button
-        android:id="@+id/iniationLine"
+        android:id="@+id/initiationLine"
         android:layout_width="158dp"
         android:layout_height="348dp"
         android:layout_marginBottom="328dp"
@@ -128,6 +128,7 @@
         android:layout_width="145dp"
         android:layout_height="101dp"
         android:background="#DFEEED"
+        android:onClick="undoPressed"
         android:text="Undo"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
