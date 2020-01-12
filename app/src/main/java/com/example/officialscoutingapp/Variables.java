@@ -23,6 +23,8 @@ public class Variables {
 
     public static boolean groundIntake = false;
 
+    public static boolean isAutoOver = false;
+
 
 
 

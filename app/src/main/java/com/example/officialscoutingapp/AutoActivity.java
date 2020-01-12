@@ -1,5 +1,6 @@
 package com.example.officialscoutingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,8 +25,12 @@ public class AutoActivity extends AppCompatActivity {
         Button bottomPort = findViewById(R.id.bottomPort);
         Button outerPort = findViewById(R.id.outerPort);
         Button innerPort = findViewById(R.id.innerPort);
+        Button nextScreen = findViewById(R.id.nextScreen);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
+        if(Variables.isAutoOver==true){
+            nextScreen();
+        }
 
 
         // Passing each menu ID as a set of Ids because each
@@ -61,6 +66,22 @@ public class AutoActivity extends AppCompatActivity {
         Button b = (Button) v;
         Variables.crossedLine=true;
         Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+    public void nextScreenClicked(View v){
+        Button b = (Button) v;
+        Variables.isAutoOver=true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+    }
+
+    public void nextScreen(){
+        Button b = (Button) findViewById(R.id.nextScreen);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AutoActivity.this, TeleOpActivity.class));
+            }
+        });
     }
 
 }
