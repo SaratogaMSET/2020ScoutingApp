@@ -33,7 +33,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
 
     <ImageView
@@ -102,8 +102,10 @@
         android:id="@+id/undoButton"
         android:layout_width="145dp"
         android:layout_height="101dp"
+        android:layout_marginBottom="100dp"
         android:background="#DFEEED"
         android:text="Undo"
+        android:onClick="undoPressed"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
@@ -137,7 +139,7 @@
         android:id="@+id/rotControlAttempted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="230dp"
         android:onClick="rotAttemptedClicked"
         android:text="Attempted"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,9 +151,9 @@
         android:id="@+id/rotControlSuccesful"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
+        android:layout_marginBottom="10dp"
         android:onClick="rotSuccesfulClicked"
         android:text="Succesful"
         app:layout_constraintBottom_toTopOf="@+id/rotControlAttempted"
@@ -164,6 +166,7 @@
         android:id="@+id/positionControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
         android:text="Position Control"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
@@ -171,30 +174,51 @@
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
         app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/rotControlAttempted"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
         app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/posControlAttempted"
         android:layout_width="107dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="300dp"
         android:onClick="posAttemptedClicked"
         android:text="Attempted"
-        app:layout_constraintBottom_toTopOf="@+id/undoButton"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toEndOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/positionControl" />
 
     <Button
         android:id="@+id/posControlSuccesful"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:onClick="posSuccesfulClicked"
         android:text="Succesful"
         app:layout_constraintBottom_toTopOf="@+id/posControlAttempted"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/positionControl" />
+
+    <TextView
+        android:id="@+id/scoredisp"
+        android:layout_width="570dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="625dp"
+        android:layout_marginBottom="8dp"
+        android:background="#DEDEDE"
+        android:text="Will display scores"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="12pt"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
