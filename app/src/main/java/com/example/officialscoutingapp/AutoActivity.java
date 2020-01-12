@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Stack;
@@ -42,8 +43,17 @@ public class AutoActivity extends AppCompatActivity {
         currMoves = new Stack<Integer>();
 
         if(Variables.isAutoOver==true){
-            nextScreen();
+            Button next = (Button) findViewById(R.id.nextScreen);
+            next.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(), TeleOpActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+
+            });
         }
+
+
 
 
         // Passing each menu ID as a set of Ids because each
