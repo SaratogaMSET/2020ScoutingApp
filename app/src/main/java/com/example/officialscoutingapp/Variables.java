@@ -40,6 +40,7 @@ public class Variables {
     public static boolean hangedParked = false;
 
     public static boolean isAutoOver = false;
+    public static boolean isTeleOpOver = false;
 
 
 

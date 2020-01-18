@@ -1,5 +1,6 @@
 package com.example.officialscoutingapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,20 @@ public class TeleOpActivity extends AppCompatActivity {
         Button bottomPort = findViewById(R.id.bottomPort);
         Button outerPort = findViewById(R.id.outerPort);
         Button innerPort = findViewById(R.id.innerPort);
+        Button nextScreen = findViewById(R.id.nextScreen);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+
+
+        if(Variables.isTeleOpOver==true){
+            Button next = (Button) findViewById(R.id.nextScreen);
+            next.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(), NotesActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+
+            });
+        }
 
 
         // Passing each menu ID as a set of Ids because each
@@ -181,6 +195,25 @@ public class TeleOpActivity extends AppCompatActivity {
     public void update()
     {
         scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner.");
+    }
+
+
+    public void nextScreenClicked(View v){
+        Button b = (Button) v;
+        Variables.isTeleOpOver=true;
+        Log.d("buttonId", Integer.toString(v.getId()));
+        nextScreen();
+    }
+
+    public void nextScreen(){
+        Button b = (Button) findViewById(R.id.nextScreen);
+        if(Variables.isTeleOpOver) b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), NotesActivity.class));
+                Log.d("status", "Notes has started");
+            }
+        });
     }
 
 }
