@@ -126,13 +126,19 @@ public class AutoActivity extends AppCompatActivity {
             Log.d("status", "team did not actually cross init. line");
             Variables.crossedLine=false;
             findViewById(R.id.initiationLine).setBackgroundColor(0xFFDFEEED);
-        } else if(latest == R.id.bottomPort)
+        }
+
+        else if(latest == R.id.bottomPort)
         {
             Variables.bottomPort--;
-        } else if(latest == R.id.innerPort)
+        }
+
+        else if(latest == R.id.innerPort)
         {
             Variables.innerPort--;
-        } else if(latest == R.id.outerPort)
+        }
+
+        else if(latest == R.id.outerPort)
         {
             Variables.outerPort--;
         }
