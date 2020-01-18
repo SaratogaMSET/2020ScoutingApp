@@ -99,6 +99,19 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void rotSuccesfulClicked(View v) {
         Button b = (Button) v;
+        if(Variables.rotControlSuccessful)
+        {
+            Variables.rotControlSuccessful = false;
+            if(Variables.rotControlAttempted) {
+                findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
+                findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
+            } else {
+                findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
+                findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
+            }
+            currMoves.push(-R.id.rotControlSuccesful);
+            return;
+        }
         Variables.rotControlSuccessful = true;
         Log.d("buttonId", Integer.toString(v.getId()));
         findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
@@ -120,6 +133,19 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void posSuccesfulClicked(View v) {
         Button b = (Button) v;
+        if(Variables.posControlSuccessful)
+        {
+            Variables.posControlSuccessful = false;
+            if(Variables.posControlAttempted) {
+                findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
+                findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
+            } else {
+                findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
+                findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
+            }
+            currMoves.push(-R.id.posControlSuccesful);
+            return;
+        }
         Variables.posControlSuccessful = true;
         Log.d("buttonId", Integer.toString(v.getId()));
         findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
@@ -162,6 +188,10 @@ public class TeleOpActivity extends AppCompatActivity {
             Variables.rotControlSuccessful = false;
             findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
             findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
+        } else if(latest == -R.id.rotControlSuccesful) {
+            Variables.rotControlSuccessful = true;
+            findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
+            findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
         } else if(latest == R.id.rotControlSuccesful)
         {
             Variables.rotControlSuccessful = false;
@@ -188,6 +218,12 @@ public class TeleOpActivity extends AppCompatActivity {
                 findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
                 findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
             }
+        } else if(latest == -R.id.posControlSuccesful)
+        {
+            Variables.posControlSuccessful = true;
+            findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
+            findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
+            update();
         }
         update();
     }
