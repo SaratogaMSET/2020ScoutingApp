@@ -5,7 +5,7 @@
     android:id="@+id/cont"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00E40B0B"
+    android:background="#AEBCE4"
     android:paddingTop="?attr/actionBarSize">
 
 
@@ -104,8 +104,8 @@
         android:layout_height="101dp"
         android:layout_marginBottom="100dp"
         android:background="#DFEEED"
-        android:text="Undo"
         android:onClick="undoPressed"
+        android:text="Undo"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"

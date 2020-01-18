@@ -33,6 +33,12 @@ public class Variables {
     public static boolean defenseBad = false;
     public static boolean defenseAverage = false;
 
+    public static boolean hangedGotUp = false;
+    public static boolean hangedAttemped = false;
+    public static boolean hangedCarried = false;
+    public static boolean hangedAttemptedCarry = false;
+    public static boolean hangedParked = false;
+
     public static boolean isAutoOver = false;
 
 

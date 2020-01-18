@@ -94,4 +94,34 @@ public class NotesActivity extends AppCompatActivity {
 
 
 
+
+
+
+    public void hangedGotUpClicked(View v) {
+        Button b = (Button) v;
+        Variables.hangedGotUp = true;
+    }
+
+    public void hangedAttempedClicked(View v) {
+        Button b = (Button) v;
+        Variables.hangedAttemped = true;
+    }
+
+    public void hangedCarriedClicked(View v) {
+        Button b = (Button) v;
+        Variables.hangedCarried = true;
+    }
+
+    public void hangedAttemptedCarry(View v) {
+        Button b = (Button) v;
+        Variables.hangedAttemptedCarry = true;
+    }
+
+    public void hangedParkedClicked(View v) {
+        Button b = (Button) v;
+        Variables.hangedParked = true;
+    }
+
+
+
 }
