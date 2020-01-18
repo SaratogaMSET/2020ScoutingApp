@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cont"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00E40B0B"
+    android:paddingTop="?attr/actionBarSize">
+
+
+    <Button
+        android:id="@+id/defenseAverage"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:onClick="defenseAverageClicked"
+        android:text="Average"
+        app:layout_constraintStart_toEndOf="@+id/defenseBad"
+        app:layout_constraintTop_toBottomOf="@+id/textDefense" />
+
+    <Button
+        android:id="@+id/defenseGood"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:onClick="defenseGoodClicked"
+        android:text="Good"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/defenseAverage"
+        app:layout_constraintTop_toBottomOf="@+id/textDefense" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <TextView
+        android:id="@+id/textDriving"
+        android:layout_width="167dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Driving"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textDefense"
+        android:layout_width="167dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Defense"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/drivingNA"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:onClick="drivingNAClicked"
+        android:text="N/A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDriving" />
+
+    <Button
+        android:id="@+id/defenseNA"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:onClick="defenseNAClicked"
+        android:text="N/A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDefense" />
+
+    <Button
+        android:id="@+id/defenseBad"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:onClick="defenseBadClicked"
+        android:text="Bad"
+        app:layout_constraintStart_toEndOf="@+id/defenseNA"
+        app:layout_constraintTop_toBottomOf="@+id/textDefense" />
+
+    <Button
+        android:id="@+id/drivingBad"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:onClick="drivingBadClicked"
+        android:text="Bad"
+        app:layout_constraintStart_toEndOf="@+id/drivingNA"
+        app:layout_constraintTop_toBottomOf="@+id/textDriving" />
+
+    <Button
+        android:id="@+id/drivingAverage"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:onClick="drivingAverageClicked"
+        android:text="Average"
+        app:layout_constraintStart_toEndOf="@+id/drivingBad"
+        app:layout_constraintTop_toBottomOf="@+id/textDriving" />
+
+    <Button
+        android:id="@+id/drivingGood"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:onClick="drivingGoodClicked"
+        android:text="Good"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/drivingAverage"
+        app:layout_constraintTop_toBottomOf="@+id/textDriving" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

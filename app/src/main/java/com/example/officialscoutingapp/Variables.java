@@ -23,6 +23,16 @@ public class Variables {
 
     public static boolean groundIntake = false;
 
+    public static boolean drivingNA = false;
+    public static boolean drivingGood = false;
+    public static boolean drivingBad = false;
+    public static boolean drivingAverage = false;
+
+    public static boolean defenseNA = false;
+    public static boolean defenseGood = false;
+    public static boolean defenseBad = false;
+    public static boolean defenseAverage = false;
+
     public static boolean isAutoOver = false;
 
 
