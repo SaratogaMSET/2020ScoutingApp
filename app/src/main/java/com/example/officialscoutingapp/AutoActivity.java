@@ -66,8 +66,16 @@ public class AutoActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    private boolean autoupd = false;
     public void outerClicked(View v) {
         Button b = (Button) v;
+        // check if initiationline has been added or not
+        if(!Variables.crossedLine)
+        {
+            Variables.crossedLine = true;
+            findViewById(R.id.initiationLine).setBackgroundColor(Color.rgb(255, 210, 0));
+            currMoves.push(R.id.initiationLine);
+        }
         Variables.outerPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.outerPort);
@@ -77,6 +85,12 @@ public class AutoActivity extends AppCompatActivity {
 
     public void bottomClicked(View v){
         Button b = (Button) v;
+        if(!Variables.crossedLine)
+        {
+            Variables.crossedLine = true;
+            findViewById(R.id.initiationLine).setBackgroundColor(Color.rgb(255, 210, 0));
+            currMoves.push(R.id.initiationLine);
+        }
         Variables.bottomPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.bottomPort);
@@ -86,6 +100,12 @@ public class AutoActivity extends AppCompatActivity {
 
     public void innerClicked(View v) {
         Button b = (Button) v;
+        if(!Variables.crossedLine)
+        {
+            Variables.crossedLine = true;
+            findViewById(R.id.initiationLine).setBackgroundColor(Color.rgb(255, 210, 0));
+            currMoves.push(R.id.initiationLine);
+        }
         Variables.innerPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.innerPort);

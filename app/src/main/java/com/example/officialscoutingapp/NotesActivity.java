@@ -48,6 +48,38 @@ public class NotesActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    public void clearAllDrive()
+    {
+
+        findViewById(R.id.drivingNA).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DNAr = 255;
+        Variables.DNAg = 255;
+        Variables.DNAb = 255;
+        Variables.drivingNA = false;
+
+        findViewById(R.id.drivingGood).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DGr = 255;
+        Variables.DGg = 255;
+        Variables.DGb = 255;
+        Variables.drivingGood = false;
+
+        findViewById(R.id.drivingBad).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DBr = 255;
+        Variables.DBg = 255;
+        Variables.DBb = 255;
+        Variables.drivingBad = false;
+
+        findViewById(R.id.drivingAverage).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DAr = 255;
+        Variables.DAg = 255;
+        Variables.DAb = 255;
+        Variables.drivingAverage = false;
+    }
+
     public void drivingNAClicked(View v) {
         Button b = (Button) v;
 
@@ -65,6 +97,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDrive();
             findViewById(R.id.drivingNA).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DNAr = 21;
@@ -92,6 +125,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDrive();
             findViewById(R.id.drivingGood).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DGr = 21;
@@ -119,6 +153,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDrive();
             findViewById(R.id.drivingBad).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DBr = 21;
@@ -145,6 +180,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDrive();
             findViewById(R.id.drivingAverage).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DAr = 21;
@@ -158,7 +194,36 @@ public class NotesActivity extends AppCompatActivity {
 
 
 
+    public void clearAllDef()
+    {
+        findViewById(R.id.defenseNA).setBackgroundColor(Color.rgb(255, 255, 255));
 
+        Variables.DefNAr = 255;
+        Variables.DefNAg = 255;
+        Variables.DefNAb = 255;
+        Variables.defenseNA = false;
+
+        findViewById(R.id.defenseGood).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DefGr = 255;
+        Variables.DefGg = 255;
+        Variables.DefGb = 255;
+        Variables.defenseGood = false;
+
+        findViewById(R.id.defenseBad).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DefBr = 255;
+        Variables.DefBg = 255;
+        Variables.DefBb = 255;
+        Variables.defenseBad = false;
+
+        findViewById(R.id.defenseAverage).setBackgroundColor(Color.rgb(255, 255, 255));
+
+        Variables.DefAr = 255;
+        Variables.DefAg = 255;
+        Variables.DefAb = 255;
+        Variables.defenseAverage = false;
+    }
 
 
     public void defenseNAClicked(View v) {
@@ -176,6 +241,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDef();
             findViewById(R.id.defenseNA).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DefNAr = 21;
@@ -204,6 +270,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDef();
             findViewById(R.id.defenseGood).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DefGr = 21;
@@ -231,6 +298,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDef();
             findViewById(R.id.defenseBad).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DefBr = 21;
@@ -258,6 +326,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         else{
+            clearAllDef();
             findViewById(R.id.defenseAverage).setBackgroundColor(Color.rgb(21, 141, 14));
 
             Variables.DefAr = 21;
@@ -271,34 +340,80 @@ public class NotesActivity extends AppCompatActivity {
 
 
 
-
-
+    // clear all hang things
+    public void clearAll()
+    {
+        int blah = Color.rgb(222, 222, 222);
+        Variables.hangedGotUp = false;
+        findViewById(R.id.button11).setBackgroundColor(blah);
+        Variables.hangedAttemped = false;
+        findViewById(R.id.button12).setBackgroundColor(blah);
+        Variables.hangedCarried = false;
+        findViewById(R.id.button13).setBackgroundColor(blah);
+        Variables.hangedAttemptedCarry = false;
+        findViewById(R.id.button14).setBackgroundColor(blah);
+        Variables.hangedParked = false;
+        findViewById(R.id.button15).setBackgroundColor(blah);
+    }
 
     public void hangedGotUpClicked(View v) {
         Button b = (Button) v;
+        boolean x = Variables.hangedGotUp;
+        clearAll();
+        if(x) return;
+        findViewById(R.id.button11).setBackgroundColor(Color.rgb(0, 200, 0));
         Variables.hangedGotUp = true;
     }
 
     public void hangedAttempedClicked(View v) {
         Button b = (Button) v;
+        boolean x = Variables.hangedAttemped;
+        clearAll();
+        if(x) return;
+        findViewById(R.id.button12).setBackgroundColor(Color.rgb(0, 200, 0));
         Variables.hangedAttemped = true;
     }
 
     public void hangedCarriedClicked(View v) {
         Button b = (Button) v;
+        boolean x = Variables.hangedCarried;
+        clearAll();
+        if(x) return;
+        findViewById(R.id.button13).setBackgroundColor(Color.rgb(0, 200, 0));
         Variables.hangedCarried = true;
     }
 
     public void hangedAttemptedCarry(View v) {
         Button b = (Button) v;
+        boolean x = Variables.hangedAttemptedCarry;
+        clearAll();
+        if(x) return;
+        findViewById(R.id.button14).setBackgroundColor(Color.rgb(0, 200, 0));
         Variables.hangedAttemptedCarry = true;
     }
 
     public void hangedParkedClicked(View v) {
         Button b = (Button) v;
+        boolean x = Variables.hangedParked;
+        clearAll();
+        if(x) return;
+        findViewById(R.id.button15).setBackgroundColor(Color.rgb(0, 200, 0));
         Variables.hangedParked = true;
     }
 
+    public void clearIn(){
+        Variables.groundIntake = false;
+        findViewById(R.id.intakeButton).setBackgroundColor(0xFFDEDEDE);
+    }
 
+    public void intake(View v) {
+        Button b = (Button) v;
+        if(Variables.groundIntake) clearIn();
+        else
+        {
+            Variables.groundIntake = true;
+            findViewById(R.id.intakeButton).setBackgroundColor(0xFF00FFFF);
+        }
+    }
 
 }
