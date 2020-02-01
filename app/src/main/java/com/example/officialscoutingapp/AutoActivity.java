@@ -174,13 +174,8 @@ public class AutoActivity extends AppCompatActivity {
 
     public void nextScreen(){
         Button b = (Button) findViewById(R.id.nextScreen);
-        if(Variables.isAutoOver) b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), TeleOpActivity.class));
-                Log.d("status", "TeleOp has started");
-            }
-        });
+        startActivity(new Intent(getBaseContext(), TeleOpActivity.class));
+        Log.d("status", "TeleOp has started");
     }
 
     public void update()

@@ -269,13 +269,8 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void nextScreen(){
         Button b = (Button) findViewById(R.id.nextScreen);
-        if(Variables.isTeleOpOver) b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), NotesActivity.class));
-                Log.d("status", "Notes has started");
-            }
-        });
+        startActivity(new Intent(getBaseContext(), NotesActivity.class));
+        Log.d("status", "Notes has started");
     }
 
 }
