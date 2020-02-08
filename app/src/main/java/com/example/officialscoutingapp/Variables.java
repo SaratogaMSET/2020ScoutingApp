@@ -82,7 +82,9 @@ public class Variables {
     public static boolean isAutoOver = false;
     public static boolean isTeleOpOver = false;
 
-
-
+    public static boolean filledDrive = false;
+    public static boolean filledDef = false;
+    public static boolean filledHang = false;
+    public static boolean filledInt = false;
 
 }

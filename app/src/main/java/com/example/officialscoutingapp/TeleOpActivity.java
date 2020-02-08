@@ -175,6 +175,7 @@ public class TeleOpActivity extends AppCompatActivity {
         if(currMoves.isEmpty())
         {
             Log.d("Error", "There's nothing to undo!");
+            return;
         }
         int latest = currMoves.pop();
         Log.d("buttonId", Integer.toString(v.getId()));
