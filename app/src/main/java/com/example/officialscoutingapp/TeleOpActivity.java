@@ -65,6 +65,7 @@ public class TeleOpActivity extends AppCompatActivity {
     public void outerClicked(View v) {
         Button b = (Button) v;
         Variables.outerPort+=1;
+        Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.outerPort);
         update();
@@ -73,6 +74,7 @@ public class TeleOpActivity extends AppCompatActivity {
     public void bottomClicked(View v){
         Button b = (Button) v;
         Variables.bottomPort+=1;
+        Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.bottomPort);
         update();
@@ -81,6 +83,7 @@ public class TeleOpActivity extends AppCompatActivity {
     public void innerClicked(View v) {
         Button b = (Button) v;
         Variables.innerPort+=1;
+        Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.innerPort);
         update();
@@ -170,6 +173,13 @@ public class TeleOpActivity extends AppCompatActivity {
         update();
     }
 
+    public void missedPressed(View v) {
+        Button b = (Button) v;
+        Variables.shotsShot++;
+        currMoves.push(R.id.upperattempted);
+        update();
+    }
+
     public void undoPressed(View v) {
         Button b = (Button) v;
         if(currMoves.isEmpty())
@@ -183,22 +193,23 @@ public class TeleOpActivity extends AppCompatActivity {
         update();
     }
 
-    public void removeAccordingly(int latest)
-    {
-        if(latest == R.id.initiationLine)
-        {
+    public void removeAccordingly(int latest) {
+        if (latest == R.id.initiationLine) {
             Log.d("status", "team did not actually cross init. line");
-            Variables.crossedLine=false;
+            Variables.crossedLine = false;
             findViewById(R.id.initiationLine).setBackgroundColor(0xFFDFEEED);
-        } else if(latest == R.id.bottomPort)
-        {
+        } else if (latest == R.id.bottomPort) {
+            Variables.shotsShot--;
             Variables.bottomPort--;
-        } else if(latest == R.id.innerPort)
-        {
+        } else if (latest == R.id.innerPort) {
+            Variables.shotsShot--;
             Variables.innerPort--;
-        } else if(latest == R.id.outerPort)
-        {
+        } else if (latest == R.id.outerPort) {
+            Variables.shotsShot--;
             Variables.outerPort--;
+        } else if (latest == R.id.upperattempted)
+        {
+            Variables.shotsShot--;
         } else if(latest == R.id.rotControlAttempted)
         {
             Variables.rotControlAttempted = false;
@@ -257,7 +268,7 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void update()
     {
-        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner.");
+        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner. " + Variables.shotsShot + " in total");
     }
 
 

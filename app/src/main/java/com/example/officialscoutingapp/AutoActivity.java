@@ -71,6 +71,7 @@ public class AutoActivity extends AppCompatActivity {
         Button b = (Button) v;
         // check if initiationline has been added or not
         Variables.outerPort+=1;
+        Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.outerPort);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
@@ -80,14 +81,24 @@ public class AutoActivity extends AppCompatActivity {
     public void bottomClicked(View v){
         Button b = (Button) v;
         Variables.bottomPort+=1;
+        Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.bottomPort);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
         update();
     }
 
+    public void missedClicked(View v)
+    {
+        Button b = (Button) v;
+        Variables.shotsShot++;
+        currMoves.push(R.id.upperattempted);
+        update();
+    }
+
     public void innerClicked(View v) {
         Button b = (Button) v;
+        Variables.shotsShot++;
         Variables.innerPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
         currMoves.push(R.id.innerPort);
@@ -142,16 +153,22 @@ public class AutoActivity extends AppCompatActivity {
         else if(latest == R.id.bottomPort)
         {
             Variables.bottomPort--;
+            Variables.shotsShot--;
         }
-
+        else if(latest == R.id.upperattempted)
+        {
+            Variables.shotsShot--;
+        }
         else if(latest == R.id.innerPort)
         {
             Variables.innerPort--;
+            Variables.shotsShot--;
         }
 
         else if(latest == R.id.outerPort)
         {
             Variables.outerPort--;
+            Variables.shotsShot--;
         }
         update();
     }
@@ -171,7 +188,7 @@ public class AutoActivity extends AppCompatActivity {
 
     public void update()
     {
-        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner.");
+        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner. " + Variables.shotsShot + " in total");
     }
 
 }
