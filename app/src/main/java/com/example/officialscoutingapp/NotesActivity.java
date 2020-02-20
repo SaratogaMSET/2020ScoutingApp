@@ -419,7 +419,7 @@ public class NotesActivity extends AppCompatActivity {
     public void clearIn(){
         Variables.filledInt = false;
         Variables.groundIntake = false;
-        findViewById(R.id.intakeButton).setBackgroundColor(0xFFDEDEDE);
+        findViewById(R.id.intakeButton).setBackgroundColor(0xFFFFFFFF);
     }
 
     public void intake(View v) {
@@ -434,6 +434,44 @@ public class NotesActivity extends AppCompatActivity {
         }
     }
 
+    public void clearBal()
+    {
+        Variables.filledBal = false;
+        Variables.balanced = false;
+        findViewById(R.id.balbutton).setBackgroundColor(0xFFFFFFFF);
+    }
+
+    public void balanced(View v)
+    {
+        Button b = (Button) v;
+        if(Variables.balanced) clearBal();
+        else
+        {
+            Variables.balanced = true;
+            findViewById(R.id.balbutton).setBackgroundColor(0xFF00FFFF);
+            Variables.filledBal = true;
+        }
+    }
+
+    public void clearStrafe()
+    {
+        Variables.filledStrafe = false;
+        Variables.strafe = false;
+        findViewById(R.id.strafe).setBackgroundColor(0xFFFFFFFF);
+    }
+
+    public void strafe(View v)
+    {
+        Button b = (Button) v;
+        if(Variables.strafe) clearStrafe();
+        else
+        {
+            Variables.strafe = true;
+            findViewById(R.id.strafe).setBackgroundColor(0xFF00EF00);
+            Variables.filledStrafe = true;
+        }
+    }
+
 
     public void submit(View v) {
         Button b = (Button) v;
@@ -441,7 +479,7 @@ public class NotesActivity extends AppCompatActivity {
         if(!x)
         {
             Log.d("Error", "fields aren't filled");
-            findViewById(R.id.submit).setBackgroundColor(0xFFDEDEDE);
+            findViewById(R.id.submit).setBackgroundColor(0xFFDEDEDE );
         }
         else{
             findViewById(R.id.submit).setBackgroundColor(0xFF00FF00);
@@ -493,6 +531,6 @@ public class NotesActivity extends AppCompatActivity {
     public boolean validateFields()
     {
         return Variables.filledDef && Variables.filledDrive && Variables.filledHang &&
-                Variables.filledInt;
+                Variables.filledInt && Variables.filledBal && Variables.filledStrafe;
     }
 }

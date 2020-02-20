@@ -70,7 +70,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="Deployment Accuracy"
+        android:text="Speed of Hang?"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.24"
@@ -133,7 +133,7 @@
         android:layout_height="49dp"
         android:background="#FFFFFF"
         android:onClick="drivingBadClicked"
-        android:text="Bad"
+        android:text="Slow"
         app:layout_constraintStart_toEndOf="@+id/drivingNA"
         app:layout_constraintTop_toBottomOf="@+id/textDriving" />
 
@@ -153,7 +153,7 @@
         android:layout_height="49dp"
         android:background="#FFFFFF"
         android:onClick="drivingGoodClicked"
-        android:text="Good"
+        android:text="Fast"
         android:textColorLink="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -228,7 +228,7 @@
         android:id="@+id/groundintake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="30dp"
         android:text="Ground Intake"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -247,5 +247,47 @@
         android:text="done"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groundintake" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Balanced Hang?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="@+id/intakeButton"
+        app:layout_constraintTop_toBottomOf="@+id/intakeButton" />
+
+    <Button
+        android:id="@+id/balbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:text="Yes"
+        android:onClick="balanced"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/strafetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Strafed?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="@+id/button15"
+        app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+    <Button
+        android:id="@+id/strafe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFFFF"
+        android:text="Yes"
+        android:onClick="strafe"
+        app:layout_constraintStart_toStartOf="@+id/strafetext"
+        app:layout_constraintTop_toBottomOf="@+id/strafetext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

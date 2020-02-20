@@ -66,6 +66,7 @@ public class Variables {
     public static boolean posControlSuccessful =  false;
 
     public static boolean groundIntake = false;
+    public static boolean balanced = false;
 
     public static boolean drivingNA = false;
     public static boolean drivingGood = false;
@@ -82,6 +83,7 @@ public class Variables {
     public static boolean hangedCarried = false;
     public static boolean hangedAttemptedCarry = false;
     public static boolean hangedParked = false;
+    public static boolean strafe = false;
 
     public static boolean isAutoOver = false;
     public static boolean isTeleOpOver = false;
@@ -90,5 +92,7 @@ public class Variables {
     public static boolean filledDef = false;
     public static boolean filledHang = false;
     public static boolean filledInt = false;
+    public static boolean filledBal = false;
+    public static boolean filledStrafe = false;
 
 }
