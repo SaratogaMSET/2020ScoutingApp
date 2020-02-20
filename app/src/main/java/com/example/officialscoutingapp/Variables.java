@@ -9,8 +9,11 @@ public class Variables {
     public static String tabNum = "";
 
     public static int innerPort = 0;
+    public static int innerPortTeleOp = 0;
     public static int outerPort = 0;
+    public static int outerPortTeleOp = 0;
     public static int bottomPort = 0;
+    public static int bottomPortTeleOp = 0;
     public static int shotsShot = 0;
     public static boolean crossedLine = false;
 

@@ -29,9 +29,9 @@ public class AutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_auto);
 
         Button iniationLine = findViewById(R.id.initiationLine);
-        Button bottomPort = findViewById(R.id.bottomPort);
-        Button outerPort = findViewById(R.id.outerPort);
-        Button innerPort = findViewById(R.id.innerPort);
+        Button bottomPort = findViewById(R.id.bottomPortTeleOp);
+        Button outerPort = findViewById(R.id.outerPortTeleOp);
+        Button innerPort = findViewById(R.id.innerPortTeleOp);
         Button nextScreen = findViewById(R.id.nextScreen);
         Button undo = findViewById(R.id.undoButton);
         scores = findViewById(R.id.scoredisp);
@@ -73,7 +73,7 @@ public class AutoActivity extends AppCompatActivity {
         Variables.outerPort+=1;
         Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.outerPort);
+        currMoves.push(R.id.outerPortTeleOp);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
         update();
     }
@@ -83,7 +83,7 @@ public class AutoActivity extends AppCompatActivity {
         Variables.bottomPort+=1;
         Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.bottomPort);
+        currMoves.push(R.id.bottomPortTeleOp);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
         update();
     }
@@ -101,7 +101,7 @@ public class AutoActivity extends AppCompatActivity {
         Variables.shotsShot++;
         Variables.innerPort+=1;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.innerPort);
+        currMoves.push(R.id.innerPortTeleOp);
         Log.d("status of team", Variables.bottomPort + " in bottom, " + Variables.outerPort + " on outside, and " + Variables.innerPort + " inside.");
         update();
     }
@@ -150,7 +150,7 @@ public class AutoActivity extends AppCompatActivity {
             Variables.crossedLine=true;
             findViewById(R.id.initiationLine).setBackgroundColor(Color.rgb(255, 210, 0));
         }
-        else if(latest == R.id.bottomPort)
+        else if(latest == R.id.bottomPortTeleOp)
         {
             Variables.bottomPort--;
             Variables.shotsShot--;
@@ -159,13 +159,13 @@ public class AutoActivity extends AppCompatActivity {
         {
             Variables.shotsShot--;
         }
-        else if(latest == R.id.innerPort)
+        else if(latest == R.id.innerPortTeleOp)
         {
             Variables.innerPort--;
             Variables.shotsShot--;
         }
 
-        else if(latest == R.id.outerPort)
+        else if(latest == R.id.outerPortTeleOp)
         {
             Variables.outerPort--;
             Variables.shotsShot--;

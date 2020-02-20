@@ -15,6 +15,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class NotesActivity extends AppCompatActivity {
 
     TextView scores;
@@ -438,7 +443,51 @@ public class NotesActivity extends AppCompatActivity {
             Log.d("Error", "fields aren't filled");
             findViewById(R.id.submit).setBackgroundColor(0xFFDEDEDE);
         }
-        else findViewById(R.id.submit).setBackgroundColor(0xFF00FF00);
+        else{
+            findViewById(R.id.submit).setBackgroundColor(0xFF00FF00);
+
+
+            //file stuff
+            File directory = getExternalFilesDir(null);
+            String filename = "ScoutingData" + ".txt";
+
+            try {
+
+                File entry = new File(directory, filename);
+                //checks if user has created file yet or not
+                if(!entry.exists()){
+                    entry.createNewFile();
+                    //create toast if needed for debugging
+                }
+                JSONObject item = new JSONObject();
+                //put key, value variabless
+                if(Variables.crossedLine) item.put("Crossed Initiation Line", 1);
+                else item.put("Crossed Initiation Line", 0);
+                item.put("Inner Port Auto", Variables.innerPort);
+                item.put("Outer Port Auto", Variables.outerPort);
+                item.put("Bottom Port Auto", Variables.bottomPort);
+                item.put("Inner Port TeleOp", Variables.innerPortTeleOp);
+                item.put("Outer Port TeleOp", Variables.outerPortTeleOp);
+                item.put("Bottom Port TeleOp", Variables.bottomPortTeleOp);
+                if (Variables.rotControlSuccessful) item.put("Rotation Control", 1);
+                else item.put("Rotation Control", 0);
+                if (Variables.posControlSuccessful) item.put("Position Control", 1);
+                else item.put("Position Control", 0);
+
+
+
+
+
+                FileOutputStream fos = new FileOutputStream(entry, true);
+                fos.write(item.toString(4).getBytes());
+                fos.write(",\n".getBytes());
+                fos.close();
+
+            } catch(Exception e) {
+
+            }
+
+        }
     }
 
     public boolean validateFields()

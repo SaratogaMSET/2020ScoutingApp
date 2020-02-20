@@ -31,9 +31,9 @@ public class TeleOpActivity extends AppCompatActivity {
         currMoves = new Stack<Integer>();
 
         Button iniationLine = findViewById(R.id.initiationLine);
-        Button bottomPort = findViewById(R.id.bottomPort);
-        Button outerPort = findViewById(R.id.outerPort);
-        Button innerPort = findViewById(R.id.innerPort);
+        Button bottomPortTeleOp = findViewById(R.id.bottomPortTeleOp);
+        Button outerPortTeleOp = findViewById(R.id.outerPortTeleOp);
+        Button innerPortTeleOp = findViewById(R.id.innerPortTeleOp);
         Button nextScreen = findViewById(R.id.nextScreen);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -64,47 +64,28 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void outerClicked(View v) {
         Button b = (Button) v;
-        Variables.outerPort+=1;
+        Variables.outerPortTeleOp+=1;
         Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.outerPort);
+        currMoves.push(R.id.outerPortTeleOp);
         update();
     }
 
     public void bottomClicked(View v){
         Button b = (Button) v;
-        Variables.bottomPort+=1;
+        Variables.bottomPortTeleOp+=1;
         Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.bottomPort);
+        currMoves.push(R.id.bottomPortTeleOp);
         update();
     }
 
     public void innerClicked(View v) {
         Button b = (Button) v;
-        Variables.innerPort+=1;
+        Variables.innerPortTeleOp += 1;
         Variables.shotsShot++;
         Log.d("buttonId", Integer.toString(v.getId()));
-        currMoves.push(R.id.innerPort);
-        update();
-    }
-
-    public void rotAttemptedClicked(View v) {
-        Button b = (Button) v;
-        if(Variables.rotControlAttempted)
-        {
-            Variables.rotControlAttempted = false;
-            findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
-            findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
-            currMoves.push(-R.id.rotControlAttempted);
-            return;
-        }
-        Variables.rotControlAttempted = true;
-        Variables.rotControlSuccessful = false;
-        Log.d("buttonId", Integer.toString(v.getId()));
-        findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-        findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-        currMoves.push(R.id.rotControlAttempted);
+        currMoves.push(R.id.innerPortTeleOp);
         update();
     }
 
@@ -114,10 +95,8 @@ public class TeleOpActivity extends AppCompatActivity {
         {
             Variables.rotControlSuccessful = false;
             if(Variables.rotControlAttempted) {
-                findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
                 findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
             } else {
-                findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
                 findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
             }
             currMoves.push(-R.id.rotControlSuccesful);
@@ -125,28 +104,8 @@ public class TeleOpActivity extends AppCompatActivity {
         }
         Variables.rotControlSuccessful = true;
         Log.d("buttonId", Integer.toString(v.getId()));
-        findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
         findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
         currMoves.push(R.id.rotControlSuccesful);
-        update();
-    }
-
-    public void posAttemptedClicked(View v) {
-        Button b = (Button) v;
-        if(Variables.posControlAttempted)
-        {
-            Variables.posControlAttempted = false;
-            findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
-            findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
-            currMoves.push(-R.id.posControlAttempted);
-            return;
-        }
-        Variables.posControlAttempted = true;
-        Variables.posControlSuccessful = false;
-        Log.d("buttonId", Integer.toString(v.getId()));
-        findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-        findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-        currMoves.push(R.id.posControlAttempted);
         update();
     }
 
@@ -156,10 +115,8 @@ public class TeleOpActivity extends AppCompatActivity {
         {
             Variables.posControlSuccessful = false;
             if(Variables.posControlAttempted) {
-                findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
                 findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
             } else {
-                findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
                 findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
             }
             currMoves.push(-R.id.posControlSuccesful);
@@ -167,7 +124,6 @@ public class TeleOpActivity extends AppCompatActivity {
         }
         Variables.posControlSuccessful = true;
         Log.d("buttonId", Integer.toString(v.getId()));
-        findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
         findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
         currMoves.push(R.id.posControlSuccesful);
         update();
@@ -198,68 +154,26 @@ public class TeleOpActivity extends AppCompatActivity {
             Log.d("status", "team did not actually cross init. line");
             Variables.crossedLine = false;
             findViewById(R.id.initiationLine).setBackgroundColor(0xFFDFEEED);
-        } else if (latest == R.id.bottomPort) {
+        } else if (latest == R.id.bottomPortTeleOp) {
             Variables.shotsShot--;
-            Variables.bottomPort--;
-        } else if (latest == R.id.innerPort) {
+            Variables.bottomPortTeleOp--;
+        } else if (latest == R.id.innerPortTeleOp) {
             Variables.shotsShot--;
-            Variables.innerPort--;
-        } else if (latest == R.id.outerPort) {
+            Variables.innerPortTeleOp--;
+        } else if (latest == R.id.outerPortTeleOp) {
             Variables.shotsShot--;
-            Variables.outerPort--;
+            Variables.outerPortTeleOp--;
         } else if (latest == R.id.upperattempted)
         {
             Variables.shotsShot--;
-        } else if(latest == R.id.rotControlAttempted)
-        {
-            Variables.rotControlAttempted = false;
-            Variables.rotControlSuccessful = false;
-            findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
-            findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
-        } else if(latest == -R.id.rotControlAttempted) {
-            Variables.rotControlAttempted = true;
-            Variables.rotControlSuccessful = false;
-            findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-            findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-        } else if(latest == -R.id.rotControlSuccesful) {
-            Variables.rotControlSuccessful = true;
-            findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
-            findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
         } else if(latest == R.id.rotControlSuccesful)
         {
             Variables.rotControlSuccessful = false;
-            if(Variables.rotControlAttempted) {
-                findViewById(R.id.rotControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-                findViewById(R.id.rotControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-            } else {
-                findViewById(R.id.rotControlAttempted).setBackgroundColor(0xFFDFEEED);
-                findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
-            }
-        } else if(latest == R.id.posControlAttempted)
-        {
-            Variables.posControlAttempted = false;
-            Variables.posControlSuccessful = false;
-            findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
-            findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
-        } else if(latest == -R.id.posControlAttempted) {
-            Variables.posControlAttempted = true;
-            Variables.posControlSuccessful = false;
-            findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-            findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-        } else if(latest == R.id.posControlSuccesful)
-        {
-            Variables.posControlSuccessful = false;
-            if(Variables.posControlAttempted) {
-                findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(255, 239, 0));
-                findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(232, 17, 45));
-            } else {
-                findViewById(R.id.posControlAttempted).setBackgroundColor(0xFFDFEEED);
-                findViewById(R.id.posControlSuccesful).setBackgroundColor(0xFFDFEEED);
-            }
-        } else if(latest == -R.id.posControlSuccesful)
+            findViewById(R.id.rotControlSuccesful).setBackgroundColor(0xFFDFEEED);
+        }
+        else if(latest == -R.id.posControlSuccesful)
         {
             Variables.posControlSuccessful = true;
-            findViewById(R.id.posControlAttempted).setBackgroundColor(Color.rgb(0, 255, 0));
             findViewById(R.id.posControlSuccesful).setBackgroundColor(Color.rgb(0, 255, 0));
             update();
         }
@@ -268,7 +182,7 @@ public class TeleOpActivity extends AppCompatActivity {
 
     public void update()
     {
-        scores.setText(Variables.bottomPort + " bottom, " + Variables.outerPort + " outer, " + Variables.innerPort + " inner. " + Variables.shotsShot + " in total");
+        scores.setText(Variables.bottomPortTeleOp + " bottom, " + Variables.outerPortTeleOp + " outer, " + Variables.innerPortTeleOp + " inner. " + Variables.shotsShot + " in total");
     }
 
 
