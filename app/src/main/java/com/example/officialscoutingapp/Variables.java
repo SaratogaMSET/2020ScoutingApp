@@ -95,4 +95,9 @@ public class Variables {
     public static boolean filledBal = false;
     public static boolean filledStrafe = false;
 
+    public static String scouter = "";
+    public static String teamname = "";
+    public static String teamnum = "";
+    public static boolean redalliance = false;
+    public static boolean noShow = false;
 }
