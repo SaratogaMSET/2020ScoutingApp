@@ -28,6 +28,7 @@ public class TeleOpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teleop);
         scores = findViewById(R.id.scoredisp);
 
+
         currMoves = new Stack<Integer>();
 
         Button iniationLine = findViewById(R.id.initiationLine);

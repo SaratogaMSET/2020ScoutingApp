@@ -1,5 +1,6 @@
 package com.example.officialscoutingapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -535,6 +536,9 @@ public class NotesActivity extends AppCompatActivity {
                 fos.write(item.toString(4).getBytes());
                 fos.write(",\n".getBytes());
                 fos.close();
+
+                startActivity(new Intent(getBaseContext(), OpeningActivity.class));
+                Log.d("status", "New Loop has started");
 
             } catch(Exception e) {
 

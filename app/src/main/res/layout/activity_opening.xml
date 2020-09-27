@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cont"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AEBCE4"
-    tools:context=".OpeningActivity">
+    android:background="#AEBCE4">
 
     <EditText
         android:id="@+id/numfield"
@@ -68,7 +68,8 @@
         android:layout_marginStart="62dp"
         android:layout_marginLeft="62dp"
         android:layout_marginTop="100dp"
-        android:background="#ffd900"
+        android:background="#FF003B"
+        android:onClick="redness"
         android:text="Yes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scfield" />
@@ -80,25 +81,47 @@
         android:layout_marginStart="62dp"
         android:layout_marginLeft="62dp"
         android:layout_marginTop="47dp"
-        android:text="Is red alliance?"
         android:onClick="redness"
+        android:text="Is red alliance?"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scfield" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="599dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="405dp"
-        android:background="#DEDEDE"
-        android:onClick="nextScreen"
-        android:text="next screen"
-        android:textColor="#000000"
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redb" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" >
+
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#AEBCE4"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/mobile_navigation" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="599dp"
+            android:layout_height="wrap_content"
+            android:background="#DEDEDE"
+            android:onClick="nextScreen"
+            android:text="next screen"
+            android:textColor="#000000" />
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
